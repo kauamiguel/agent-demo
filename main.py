@@ -3,6 +3,7 @@ from dotenv import load_dotenv
 import sys
 from groq import Groq
 from functions.get_files_from_directory import get_files_info
+from functions.get_file_content import get_file_content
 
 load_dotenv()
 groq_api_key = os.environ.get("GROQ_API_KEY")

@@ -1,10 +1,8 @@
 import os
 
-def get_files_info(working_directory: str, directory:str = None):
+def get_files_info(working_directory: str, directory:str = "."):
     abs_working_dir = os.path.abspath(working_directory)
-    if directory is None:
-        directory = working_directory
-    abs_dir = os.path.abspath(directory)
+    abs_dir = os.path.abspath(os.path.join(working_directory, directory))
     if not abs_dir.startswith(abs_working_dir):
         return "You're not in an allowed directory"
 
