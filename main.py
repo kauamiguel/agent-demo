@@ -2,6 +2,7 @@ import os
 from dotenv import load_dotenv
 import sys
 from groq import Groq
+from functions.get_files_from_directory import get_files_info
 
 load_dotenv()
 groq_api_key = os.environ.get("GROQ_API_KEY")
@@ -13,12 +14,14 @@ def talk_to_llm(prompt: str):
             {
                 "role":"user",
                 "content":prompt,
-            }
+            },
         ],
         model="llama-3.3-70b-versatile",
     )
 
-    print(chat_completion.choices[0].message.content)
+    # print(chat_completion.choices[0].message.content)
+    for chat_response in chat_completion.choices:
+        print(chat_response.message.content)
 
 def main():
     prompt = ''
