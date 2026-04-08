@@ -4,6 +4,7 @@ import sys
 from groq import Groq
 from functions.get_files_from_directory import get_files_info
 from functions.get_file_content import get_file_content
+from functions.write_file import write_file
 
 load_dotenv()
 groq_api_key = os.environ.get("GROQ_API_KEY")
@@ -31,4 +32,5 @@ def main():
         talk_to_llm(prompt)
         print('\n\n')
 
-main()
+# main()
+print(write_file("calculator", "test.txt", "ola mundo"))
