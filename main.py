@@ -43,7 +43,7 @@ def talk_to_llm(prompt: str):
 
     response_message = response.choices[0].message
     tool_calls = response_message.tool_calls
-    print(tool_calls)
+
     if tool_calls:
         messages.append(response_message)
 
